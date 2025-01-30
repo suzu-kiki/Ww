@@ -1,1 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>百分比計算器</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 300px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        input, button {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>百分比計算器</h1>
+        <label for="value">數值：</label>
+        <input type="number" id="value" placeholder="輸入數值">
 
+        <label for="percentage">百分比 (%)：</label>
+        <input type="number" id="percentage" placeholder="輸入百分比">
+
+        <button onclick="calculatePercentage()">計算</button>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function calculatePercentage() {
+            const value = parseFloat(document.getElementById("value").value);
+            const percentage = parseFloat(document.getElementById("percentage").value);
+
+            if (isNaN(value) || isNaN(percentage)) {
+                document.getElementById("result").innerText = "請輸入有效的數值與百分比。";
+                return;
+            }
+
+            const result = (value * percentage) / 100;
+            document.getElementById("result").innerText = `結果：${result}`;
+        }
+    </script>
+</body>
+</html>
